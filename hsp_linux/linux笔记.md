@@ -25,13 +25,13 @@ centos会出现一个vm的安装包，xx.tar.gz
 
 [常用]
 
-Vusr/bin .Jusr/local/bin)
+usr/bin usr/local/bin
 
 是Binary的缩写，这个目录存放着最经常使用的命令
 
 ## /sbin 
 
-Vusr/sbin./usr/local/sbin)
+usr/sbin usr/local/sbin
 
 S就是SuperUser的意思，这里存放的是系统管理员使用的系统管理程序。
 
@@ -477,6 +477,28 @@ usermod -g 新组名
 
 usermod -d 目录名 用户名 改变该用户登入的初始登入目录
 
+## history
+
+history 执行过的命令历史记录
+
+!(命令行数) 执行该历史命令
+
+history -c 清除历史命令
+
+history -r 恢复历史命令
+
+cat ~/.bash_history 存放记录的文件
+
+!! 执行上一次执行的命令
+
+## echo
+
+echo 'xxx' 输出内容，自带\n
+
+echo -n 'xxx' 不换行输出
+
+echo -e 'xxx\n' 解析特殊字符
+
 # 权限的基本介绍
 
 ls-l中显示的内容如下：
@@ -798,27 +820,27 @@ IDE硬盘的表示方法一样。
 
 ## 虚拟机添加硬盘
 
-![image-20230223200226179](/home/Ljw/.config/Typora/typora-user-images/image-20230223200226179.png)
+![image-20230223200226179](images/image-20230223200226179.png)
 
 add
 
-![image-20230223200313967](/home/Ljw/.config/Typora/typora-user-images/image-20230223200313967.png)
+![image-20230223200313967](images/image-20230223200313967.png)
 
 next
 
-![image-20230223200343213](/home/Ljw/.config/Typora/typora-user-images/image-20230223200343213.png)
+![image-20230223200343213](images/image-20230223200343213.png)
 
 scsi
 
-![image-20230223200407393](/home/Ljw/.config/Typora/typora-user-images/image-20230223200407393.png)
+![image-20230223200407393](images/image-20230223200407393.png)
 
 create a new virtual disk
 
-![image-20230223200454491](/home/Ljw/.config/Typora/typora-user-images/image-20230223200454491.png)
+![image-20230223200454491](images/image-20230223200454491.png)
 
 选择需要的大小
 
-![image-20230223200534649](/home/Ljw/.config/Typora/typora-user-images/image-20230223200534649.png)
+![image-20230223200534649](images/image-20230223200534649.png)
 
 finish
 
@@ -832,7 +854,7 @@ finish
 
 更详细的查看
 
-![image-20230223200731819](/home/Ljw/.config/Typora/typora-user-images/image-20230223200731819.png)
+![image-20230223200731819](images/image-20230223200731819.png)
 
 2.
 
@@ -856,7 +878,7 @@ w 退出分区编辑
 
 q 保存分区修改	
 
-![image-20230223201846805](/home/Ljw/.config/Typora/typora-user-images/image-20230223201846805.png)
+![image-20230223201846805](images/image-20230223201846805.png)
 
 3.
 
@@ -866,9 +888,9 @@ q 保存分区修改
 
 mkfs  -t ext4 /dev/sdb1
 
-![image-20230223202211087](/home/Ljw/.config/Typora/typora-user-images/image-20230223202211087.png)
+![image-20230223202211087](images/image-20230223202211087.png)
 
-![image-20230223202311808](/home/Ljw/.config/Typora/typora-user-images/image-20230223202311808.png)
+![image-20230223202311808](images/image-20230223202311808.png)
 
 4.
 
@@ -880,9 +902,9 @@ mount /dev/sdb1 /media/data
 
 
 
-![image-20230223202453740](/home/Ljw/.config/Typora/typora-user-images/image-20230223202453740.png)
+![image-20230223202453740](images/image-20230223202453740.png)
 
-![image-20230223202614849](/home/Ljw/.config/Typora/typora-user-images/image-20230223202614849.png)
+![image-20230223202614849](images/image-20230223202614849.png)
 
 5.
 
@@ -1045,13 +1067,15 @@ DNS，就是DomainNameSystem的缩写，翻译过来就是域名系统
 
 是互联网上作为域名和IP地址相互映射的一个分布式数据库
 
-![image-20230225210926882](/home/Ljw/.config/Typora/typora-user-images/image-20230225210926882.png)
+![image-20230225210926882](images/image-20230225210926882.png)
 
 # 进程
 
 ## 基本介绍
 
-在LINUX中，每个执行的享都称为一个进程。每一个进程都分配一个ID号(pid，进程号)
+在LINUX中，每个执行的享都称为一个进程。每一个进程都分配一个ID号(pid，进程号)、
+
+进程是运行中的程序的实例，它拥有自己的地址空间、堆栈、寄存器和文件句柄等资源。进程之间相互独立，通过操作系统提供的机制进行通信和同步。
 
 每个进程都可能以两种方式存在的。前台与后台，所谓前台进程就是用户目前的屏幕上可以进行操作！
 
@@ -1059,7 +1083,7 @@ DNS，就是DomainNameSystem的缩写，翻译过来就是域名系统
 
 般系统的服务都是以后台进程的方式存在，而且都会常驻在系统中。直到关机才才结束，
 
-![image-20230227145033035](/home/Ljw/.config/Typora/typora-user-images/image-20230227145033035.png)
+![image-20230227145033035](images/image-20230227145033035.png)
 
 ps详解
 
@@ -1119,7 +1143,7 @@ ps-ef是以全格式显示当前所有的进程
 ps -ef
 ```
 
-![image-20230227145427606](/home/Ljw/.config/Typora/typora-user-images/image-20230227145427606.png)
+![image-20230227145427606](images/image-20230227145427606.png)
 
 ## ●应用实例
 
@@ -1129,7 +1153,9 @@ ps-ef是以全格式显示当前所有的进程
 
 -e显示所有进程。-f全格式
 
-ps -eflgrep xxx
+```bash
+ps -ef|grep xxx
+```
 
 是BSD风格
 
@@ -1151,7 +1177,7 @@ TIME：CPU时间
 
 CMD：启动进程所用的命令和参数
 
-![image-20230227145912860](/home/Ljw/.config/Typora/typora-user-images/image-20230227145912860.png)
+![image-20230227145912860](images/image-20230227145912860.png)
 
 ## 终止进程kill和killal
 
@@ -1195,7 +1221,7 @@ killall进程名称（功能描述：通过进程名称杀死进程，也支持�
 yum -y install psmisc
 ```
 
-![image-20230227151228290](/home/Ljw/.config/Typora/typora-user-images/image-20230227151228290.png)
+![image-20230227151228290](images/image-20230227151228290.png)
 
 基本语法
 
@@ -1213,7 +1239,7 @@ pstree【选项]，可以更加直观的来看进程信息
 
 # 服务（service)管理
 
-![image-20230227151523763](/home/Ljw/.config/Typora/typora-user-images/image-20230227151523763.png)
+![image-20230227151523763](images/image-20230227151523763.png)
 
 
 
@@ -1269,7 +1295,7 @@ service管理指令案例
 
 ## checkconfig
 
-![image-20230227153342805](/home/Ljw/.config/Typora/typora-user-images/image-20230227153342805.png)
+![image-20230227153342805](images/image-20230227153342805.png)
 
 服务（service)管理
 
@@ -1315,7 +1341,7 @@ chkconfig重新设置服务后自启动或关闭，需要重启机器reboot生�
 
 ## systemctl
 
-![image-20230227154039126](/home/Ljw/.config/Typora/typora-user-images/image-20230227154039126.png)
+![image-20230227154039126](images/image-20230227154039126.png)
 
 ### systemctl管理指令
 
@@ -1363,7 +1389,7 @@ systemctl list-unit-files |grep firewalld
 
 ## firewalld
 
-![image-20230227155449121](/home/Ljw/.config/Typora/typora-user-images/image-20230227155449121.png)
+![image-20230227155449121](images/image-20230227155449121.png)
 
 ·打开或者关闭指定端口
 
@@ -1429,7 +1455,7 @@ firewall-cmd --list-all
 
 # 动态监控
 
-![image-20230227160552093](/home/Ljw/.config/Typora/typora-user-images/image-20230227160552093.png)
+![image-20230227160552093](images/image-20230227160552093.png)
 
 ## top
 
@@ -1503,7 +1529,7 @@ k：然后输入“k”回车，再输入要结束的进程ID号
 
 ## netstat
 
-![image-20230227162534466](/home/Ljw/.config/Typora/typora-user-images/image-20230227162534466.png)
+![image-20230227162534466](images/image-20230227162534466.png)
 
 查看系统网络情况netstat
 
@@ -1697,7 +1723,7 @@ rpm -e --nodeps foo
 
 # yum
 
-![image-20230228155237391](/home/Ljw/.config/Typora/typora-user-images/image-20230228155237391.png)
+![image-20230228155237391](images/image-20230228155237391.png)
 
 ## 介绍
 
@@ -1758,7 +1784,7 @@ yum makecache
 
 # jdk安装
 
-![image-20230228160211379](/home/Ljw/.config/Typora/typora-user-images/image-20230228160211379.png)
+![image-20230228160211379](images/image-20230228160211379.png)
 
 # Shell编程
 
@@ -1780,7 +1806,7 @@ Shell是一个命令行解释器，它为用户提供了一个向Linux内核发�
 
 用户可以用Shell来启动、挂起、停止甚至是编写一些程序。看一个示意图
 
-![image-20230228162959188](/home/Ljw/.config/Typora/typora-user-images/image-20230228162959188.png)
+![image-20230228162959188](images/image-20230228162959188.png)
 
 
 
@@ -1806,7 +1832,7 @@ Shell是一个命令行解释器，它为用户提供了一个向Linux内核发�
 
 说明：不用赋予脚本+x权限，直接执行即可。
 
-![image-20230228163210932](/home/Ljw/.config/Typora/typora-user-images/image-20230228163210932.png)
+![image-20230228163210932](images/image-20230228163210932.png)
 
 ### sh 文件名
 
@@ -1816,7 +1842,7 @@ Shell是一个命令行解释器，它为用户提供了一个向Linux内核发�
 
 ## Shell的变量
 
-![image-20230228164956361](/home/Ljw/.config/Typora/typora-user-images/image-20230228164956361.png)
+![image-20230228164956361](images/image-20230228164956361.png)
 
 ### Shell变量介绍
 
@@ -1842,7 +1868,7 @@ LinuxShell中的变量分为`系统变量`和`用户自定义变量`。
 
 2.
 
-##### 撤销变量：unset变量
+##### m install xxx撤销变量：unset变量
 
 3.
 
@@ -1983,7 +2009,7 @@ source /etc/profile
 
 ## 位置参数变量
 
-![image-20230228173905524](/home/Ljw/.config/Typora/typora-user-images/image-20230228173905524.png)
+![image-20230228173905524](images/image-20230228173905524.png)
 
 ### 介绍
 
@@ -2011,6 +2037,10 @@ source /etc/profile
 
 （功能描述：这个变量代表命令行中所有参数的个数）
 
+#### `$_`
+
+（功能描述：取出上一次执行命令所传入的最后一个参数的值）
+
 案例：编写一个shel脚本`position.sh`,获取到命令行的各个参数信息
 
 ```bash
@@ -2030,7 +2060,7 @@ echo "参数个数: $#"
 
 ## 预定义变量
 
-![image-20230228173840571](/home/Ljw/.config/Typora/typora-user-images/image-20230228173840571.png)
+![image-20230228173840571](images/image-20230228173840571.png)
 
 ### 基本介绍
 
@@ -2076,7 +2106,7 @@ echo "返回最后一个任务的执行状态=$?"
 
 ## 注释
 
-### 单行注释 #
+### 单行注释# #
 
 ### 多行注释:<<!内容!
 
@@ -2128,6 +2158,36 @@ echo $(($1+$2))
 ```shell
 sh expression2.sh 2 3
 ```
+
+#### expr length
+
+``` bash
+expr length 123
+# 3
+```
+
+#### expr 模式匹配
+
+```bash
+# str 匹配的字符串
+# ":" 开始匹配
+# ".*" 匹配模式 .*匹配任意字符
+expr str ":" ".*"
+```
+
+#### bc
+
+```bash
+# 将1+2交由bc计算，可以计算小数
+echo "1+2"|bc
+# 快速计算1-1000的值
+seq -s "+" 1000|bc
+echo {1,1000} |tr " " "+"|bc
+echo $((`seq -s "+" 1000`))
+seq -s " + " 1000|xargs expr
+```
+
+
 
 ## 字符串
 
@@ -2228,6 +2288,57 @@ echo `expr index "$string" io` *#* *输出* *4
 
 注意： 以上脚本中 **`** 是反引号，⽽不是单引号 **'**，不要看错了哦。 
 
+### 替换字符串
+
+#### `${name#word} `
+
+从头开始最短匹配word并删除
+
+#### `${name##word} `
+
+从头开始最长匹配word并删除
+
+#### `${name%word}`
+
+从尾开始最短匹配word并删除
+
+#### `${name%%word} `
+
+从头开始最长匹配word并删除
+
+#### `${/pattern/str} `
+
+用str替换第一个匹配的pattern
+
+#### `${//pattern/str} `
+
+用str替换所有匹配的pattern
+
+```bash
+# 将txt文件带有'a'的去掉
+for i in `ls *.txt`;do mv $i `echo ${i//a/}`;done
+```
+
+### 扩展
+
+#### `${param:-word}`
+
+如果param为空，返回word字符串
+
+#### `${param:=word}`
+
+如果param为空，则word代替变量值，且返回其值
+
+#### `${param:?word}`
+
+如果param为空,word当作变量值为空的错误信息
+
+#### `${param:+word}`
+
+如果param为空，什么都不做，否则返回word
+
+
+
 ##  数组
 
 bash⽀持⼀维数组（不⽀持多维数组），并且没有限定数组的⼤⼩。 
@@ -2311,11 +2422,21 @@ length=${#array_name[*]}
 lengthn=${#array_name[n]}
 ```
 
+## 内置命令和外置命令
 
+内置命令是linux shell的一部分，系统启动是就已经加载在内存中，并常驻于内容，用执行内置命令时，并不会单独开一个子shell去执行
+
+外置命令和shell外的程序，只有使用时才会去寻找该程序并加载到内存，执行外置命令时会自动开启一个子shell
+
+内部命令效率高于外置命令
+
+### 查看所有的内置命令
+
+### `compgen -b `
 
 ## 条件判断
 
-![image-20230228181553973](/home/Ljw/.config/Typora/typora-user-images/image-20230228181553973.png)
+![image-20230228181553973](images/image-20230228181553973.png)
 
 判断语句
 
@@ -2339,7 +2460,7 @@ lengthn=${#array_name[n]}
 
 条件满足，执行后面的语句
 
-![image-20230228181935855](/home/Ljw/.config/Typora/typora-user-images/image-20230228181935855.png)
+![image-20230228181935855](images/image-20230228181935855.png)
 
 ### 判断语句
 
@@ -2381,7 +2502,7 @@ lengthn=${#array_name[n]}
 
 ### if判断
 
-![image-20230301153522924](/home/Ljw/.config/Typora/typora-user-images/image-20230301153522924.png)
+![image-20230301153522924](images/image-20230301153522924.png)
 
 #### 基本语法
 
@@ -2428,7 +2549,7 @@ fi
 
 ### case语句
 
-![image-20230301154457588](/home/Ljw/.config/Typora/typora-user-images/image-20230301154457588.png)
+![image-20230301154457588](images/image-20230301154457588.png)
 
 #### 基本语法
 
@@ -2473,7 +2594,7 @@ esac
 
 ### for循环
 
-![image-20230301163607640](/home/Ljw/.config/Typora/typora-user-images/image-20230301163607640.png)
+![image-20230301163607640](images/image-20230301163607640.png)
 
 #### 基本语法1
 
@@ -2563,7 +2684,7 @@ done
 
 ### while循环
 
-![image-20230301163557779](/home/Ljw/.config/Typora/typora-user-images/image-20230301163557779.png)
+![image-20230301163557779](images/image-20230301163557779.png)
 
 #### 基本语法1
 
@@ -2595,7 +2716,7 @@ echo "sum is $SUM"
 
 ## read读取控制台输入
 
-![image-20230301163542738](/home/Ljw/.config/Typora/typora-user-images/image-20230301163542738.png)
+![image-20230301163542738](images/image-20230301163542738.png)
 
 ### 基本语法
 
@@ -2632,9 +2753,63 @@ read -t 10 -p "请输入一个值(10秒内有效): " NUM2
 echo "NUM2=$NUM2"
 ```
 
+## test
+
+### -e 
+
+#### 文件或目录是否存在
+
+```bash
+test -e 123.txt && echo "存在" || echo "不存在";touch 123.txt
+```
+
+### -f  
+
+#### 文件存在且为普通文本
+
+```bash
+test -f 123.txt && echo "ok" || "no"
+```
+
+### -d 
+
+#### 存在且是否为目录
+
+```bash
+test -d 123 && echo "ok" || "no"
+```
+
+### -z
+
+#### 字符串为空
+
+```bash
+test -z "" && echo "null" || "not null"
+```
+
+### -n
+
+#### 字符串不为空
+
+```bash
+test -n "" && echo "not null" || echo "null"
+```
+
+### -r
+
+#### 是否有读取权限
+
+### -w
+
+#### 是否有写入权限
+
+### -x
+
+#### 是否有执行权限
+
 ## 函数
 
-![image-20230301163534586](/home/Ljw/.config/Typora/typora-user-images/image-20230301163534586.png)
+![image-20230301163534586](images/image-20230301163534586.png)
 
 ### 函数介绍
 
@@ -2670,7 +2845,7 @@ J=`basename /home/aaa/test.txt .txt`
 echo "去除基本文件名后缀是: $J"
 ```
 
-![image-20230301164032255](/home/Ljw/.config/Typora/typora-user-images/image-20230301164032255.png)
+![image-20230301164032255](images/image-20230301164032255.png)
 
 ##### dirname基本语法
 
@@ -2692,7 +2867,7 @@ echo "路径名是:$S"
 
 ### 自定义函数
 
-![image-20230301165549795](/home/Ljw/.config/Typora/typora-user-images/image-20230301165549795.png)
+![image-20230301165549795](images/image-20230301165549795.png)
 
 #### 基本语法
 
@@ -2731,6 +2906,249 @@ read -p "请输入一个数n2: " n2
 get_sum $n1 $n2
 
 ```
+
+### echo
+
+Shell 的 echo 指令与 PHP 的 echo 指令类似，都是用于字符串的输出。命令格式：
+
+```
+echo string
+```
+
+您可以使用echo实现更复杂的输出格式控制。
+
+#### 1.显示普通字符串
+
+```
+echo "It is a test"
+```
+
+这里的双引号完全可以省略，以下命令与上面实例效果一致：
+
+```
+echo It is a test
+```
+
+#### 2.显示转义字符
+
+```
+echo "\"It is a test\""
+```
+
+结果将是:
+
+```
+"It is a test"
+```
+
+同样，双引号也可以省略
+
+#### 3.显示变量
+
+read 命令从标准输入中读取一行,并把输入行的每个字段的值指定给 shell 变量
+
+```
+#!/bin/sh
+read name 
+echo "$name It is a test"
+```
+
+以上代码保存为 test.sh，name 接收标准输入的变量，结果将是:
+
+```
+[root@www ~]# sh test.sh
+OK                     #标准输入
+OK It is a test        #输出
+```
+
+#### 4.显示换行
+
+```
+echo -e "OK! \n" # -e 开启转义
+echo "It is a test"
+```
+
+输出结果：
+
+```
+OK!
+
+It is a test
+```
+
+#### 5.显示不换行
+
+```
+#!/bin/sh
+echo -e "OK! \c" # -e 开启转义 \c 不换行
+echo "It is a test"
+```
+
+输出结果：
+
+```
+OK! It is a test
+```
+
+#### 6.显示结果定向至文件
+
+```
+echo "It is a test" > myfile
+```
+
+#### 7.原样输出字符串，不进行转义或取变量(用单引号)
+
+```
+echo '$name\"'
+```
+
+输出结果：
+
+```
+$name\"
+```
+
+#### 8.显示命令执行结果
+
+```
+echo `date`
+```
+
+**注意：** 这里使用的是反引号 **`**, 而不是单引号 **'**。
+
+结果将显示当前日期
+
+```
+Thu Jul 24 10:08:46 CST 2014
+```
+
+### printf
+
+上一章节我们学习了 Shell 的 echo 命令，本章节我们来学习 Shell 的另一个输出命令 printf。
+
+printf 命令模仿 C 程序库（library）里的 printf() 程序。
+
+printf 由 POSIX 标准所定义，因此使用 printf 的脚本比使用 echo 移植性好。
+
+printf 使用引用文本或空格分隔的参数，外面可以在 **printf** 中使用格式化字符串，还可以制定字符串的宽度、左右对齐方式等。默认的 printf 不会像 **echo** 自动添加换行符，我们可以手动添加 **\n**。
+
+printf 命令的语法：
+
+```
+printf  format-string  [arguments...]
+```
+
+**参数说明：**
+
+- **format-string:** 为格式控制字符串
+- **arguments:** 为参数列表。
+
+#### 实例
+
+$ **echo** "Hello, Shell"
+Hello, Shell
+$ **printf** "Hello, Shell**\n**"
+Hello, Shell
+$
+
+接下来,我来用一个脚本来体现 printf 的强大功能：
+
+#### 实例
+
+*#!/bin/bash*
+*# author:菜鸟教程*
+*# url:www.runoob.com*
+
+**printf** "%-10s %-8s %-4s**\n**" 姓名 性别 体重kg  
+**printf** "%-10s %-8s %-4.2f**\n**" 郭靖 男 66.1234
+**printf** "%-10s %-8s %-4.2f**\n**" 杨过 男 48.6543
+**printf** "%-10s %-8s %-4.2f**\n**" 郭芙 女 47.9876
+
+执行脚本，输出结果如下所示：
+
+```
+姓名     性别   体重kg
+郭靖     男      66.12
+杨过     男      48.65
+郭芙     女      47.99
+```
+
+**%s %c %d %f** 都是格式替代符，**％s** 输出一个字符串，**％d** 整型输出，**％c** 输出一个字符，**％f** 输出实数，以小数形式输出。
+
+**%-10s** 指一个宽度为 10 个字符（**-** 表示左对齐，没有则表示右对齐），任何字符都会被显示在 10 个字符宽的字符内，如果不足则自动以空格填充，超过也会将内容全部显示出来。
+
+**%-4.2f** 指格式化为小数，其中 **.2** 指保留2位小数。
+
+
+
+#### 实例
+
+*#!/bin/bash*
+*# author:菜鸟教程*
+*# url:www.runoob.com*
+
+*# format-string为双引号*
+**printf** "%d %s**\n**" 1 "abc"
+
+*# 单引号与双引号效果一样*
+**printf** '%d %s\n' 1 "abc"
+
+*# 没有引号也可以输出*
+**printf** **%**s abcdef
+
+*# 格式只指定了一个参数，但多出的参数仍然会按照该格式输出，format-string 被重用*
+**printf** **%**s abc def
+
+**printf** "%s**\n**" abc def
+
+**printf** "%s %s %s**\n**" a b c d e f g h i j
+
+*# 如果没有 arguments，那么 %s 用NULL代替，%d 用 0 代替*
+**printf** "%s and %d **\n**"
+
+执行脚本，输出结果如下所示：
+
+```bash
+1 abc
+1 abc
+abcdefabcdefabc
+def
+a b c
+d e f
+g h i
+j  
+ and 0
+```
+
+------
+
+#### printf 的转义序列
+
+| 序列  | 说明                                                         |
+| :---- | :----------------------------------------------------------- |
+| \a    | 警告字符，通常为ASCII的BEL字符                               |
+| \b    | 后退                                                         |
+| \c    | 抑制（不显示）输出结果中任何结尾的换行字符（只在%b格式指示符控制下的参数字符串中有效），而且，任何留在参数里的字符、任何接下来的参数以及任何留在格式字符串中的字符，都被忽略 |
+| \f    | 换页（formfeed）                                             |
+| \n    | 换行                                                         |
+| \r    | 回车（Carriage return）                                      |
+| \t    | 水平制表符                                                   |
+| \v    | 垂直制表符                                                   |
+| \\    | 一个字面上的反斜杠字符                                       |
+| \ddd  | 表示1到3位数八进制值的字符。仅在格式字符串中有效             |
+| \0ddd | 表示1到3位的八进制值字符                                     |
+
+#### 实例
+
+$ **printf** "a string, no processing:<%s>**\n**" "A**\n**B"
+a string, no processing:**<**A\nB**>**
+
+$ **printf** "a string, no processing:<%b>**\n**" "A**\n**B"
+a string, no processing:**<**A
+B**>**
+
+$ **printf** "www.runoob.com \a"
+www.runoob.com $          *#不换行*
 
 ### sort
 
@@ -3854,7 +4272,7 @@ sed 的 **-i** 选项可以直接修改文件内容，这功能非常有帮助�
 
 # Shell编程综合案例
 
-![image-20230301165537366](/home/Ljw/.config/Typora/typora-user-images/image-20230301165537366.png)
+![image-20230301165537366](images/image-20230301165537366.png)
 
 ## 需求分析
 
@@ -3870,7 +4288,7 @@ sed 的 **-i** 选项可以直接修改文件内容，这功能非常有帮助�
 
 ## 画一个思路分析图
 
-![image-20230301165850398](/home/Ljw/.config/Typora/typora-user-images/image-20230301165850398.png)
+![image-20230301165850398](images/image-20230301165850398.png)
 
 ## 代码
 
@@ -3932,9 +4350,297 @@ echo "备份数据库（$DATABASE）成功..."
 
 ```
 
+## 计算器
+
+```bash
+#!/bin/bash
+# 根据用户两次输入的值进行判断，如果为整数，则再根据输入的运算符号进行数学运算
+# 如果不是整数，则要求重新输入，直至正确的输入整数字符
+
+# 定义一个函数
+main() {
+  read -p "Please enter a integer: " first
+  check_integer $first
+  [ $? -ne 0 ] && exit 1
+  read -p "Please enter a integer: " two
+  check_integer $two
+  [ $? -ne 0 ] && exit 1
+  read -p "Please enter a operator(+,-,*,/): " operator
+  echo "You entered an invalid integer: $operator"
+  # shellcheck disable=SC1072
+  # shellcheck disable=SC1073
+  if  [ "$operator" = "+" -o "$operator" = "-" -o "$operator" = "*" -o "$operator" = "/" ] ; then
+    echo "${first} ${operator} ${two} = $((${first}${operator}${two}))"
+  else
+    echo "$operator is invalid!"
+  fi
+
+}
+
+
+
+check_integer() {
+  if [ ! -n "$(echo $1 | sed 's/[0-9]//g')" ]; then
+    echo "You entered $1"
+  else
+    echo "You entered an invalid integer: $1"
+    # 返回状态码
+    exit 1
+  fi
+}
+
+# 执行函数
+main
+
+```
+
+## 网站状态检测
+
+```bash
+#!/bin/bash
+# 检测nginx任务状态
+# 检测url是否有效
+CheckUrl() {
+  # 确定连接超时时间
+  timeout=5
+  # 失败的次数
+  fail=0
+  success=0
+
+  # shellcheck disable=SC2107
+  while true; do
+    # --timeout 超时时间
+    # --tries 重试次数
+    # -q 静默运行，不显示信息
+    # -O 输出到
+    proxychains wget "https://www.baidu.com" --timeout=$timeout --tries=1 -q -O /dev/null
+    # 判断执行是否成功
+    if [ $? -eq 0 ]; then
+      # 成功执行，success+1
+      success=$((success + 1))
+    else
+      # 失败执行，fail+1
+      fail=$((fail + 1))
+    fi
+    # 结束循环 失败次数大于3次或成功次数大于3次
+    if [ $fail -gt 3 ]; then
+      echo "网站连接有问题..."
+      exit 2
+    fi
+    if [ $success -gt 3 ]; then
+      echo "看起来运行状态不错..."
+      exit 0
+    fi
+  done
+  echo "Success: $success, Failed: $fail"
+  exit 0
+
+}
+
+CheckUrl
+
+```
+
+## rsync服务管理
+
+```bash
+#!/bin/bash
+lsb_function="/lib/lsb/init-functions"
+# shellcheck source=/lib/lsb/init-functions
+[ -f "$lsb_function" ] && source "$lsb_function" || exit 1
+
+check_params() {
+  if [ "$#" -ne 1 ]; then
+    log_failure_msg "Usage:$0{start|stop|restart}"
+    exit 1
+  fi
+}
+
+check_run_as_root() {
+  uid=$(id -u)
+  if [ "${uid}" -eq 0 ]; then echo "run as sudo"; else
+    log_failure_msg "Please run as root!"
+    exit 1
+  fi
+}
+
+check_rsync_status() {
+  rsync_status=$(pgrep rsync)
+  [ -n "$rsync_status" ] && return 0 || return 1
+}
+
+start() {
+  # check_rsync_status
+  if check_rsync_status; then
+    log_failure_msg "rsync is already running"
+    exit 1
+  else
+    rsync --daemon
+    sleep 1
+    echo "rsync running..."
+  fi
+}
+
+stop() {
+  # check_rsync_status
+  if check_rsync_status; then
+    killall rsync
+    sleep 1
+    echo "rsync stopped..."
+  else
+    log_failure_msg "rsync is already stopping..."
+  fi
+}
+
+restart() {
+  # check_rsync_status
+  if check_rsync_status; then
+    killall rsync
+    sleep 1
+    echo "rsync stopped..."
+    rsync --daemon
+    echo "rsync starting..."
+  else
+    echo "rsync stopped..."
+    sleep 1
+    rsync --daemon
+    echo "rsync running..."
+  fi
+  echo "Restart..."
+}
+
+main() {
+  check_run_as_root
+
+  check_params "$@"
+
+  case $1 in
+  'start')
+    start
+    ;;
+  'stop')
+    stop
+    ;;
+  'restart')
+    restart
+    ;;
+  *)
+    log_failure_msg "Usage:$0{start|stop|restart}"
+    exit 1
+    ;;
+  esac
+}
+
+# check_rsync_status
+main "$*"
+
+```
+
+## apt管理
+
+```bash
+#!/bin/bash
+uid=$(id -u)
+check_run_as_root() {
+  if [ "${uid}" -eq 0 ]; then echo "run as sudo"; else
+    echo "Please run as root!"
+    exit 1
+  fi
+}
+manger_package() {
+  info=(
+    "安装该包"
+    "升级该包"
+    "删除该包"
+    "获取包的相关信息"
+    "重新安装该包"
+    "修复安装该包"
+    "该包依赖信息"
+    "该包被依赖信息"
+    "下载该包的源代码"
+    "退出"
+  )
+  echo -e "\n\n\n\t\t\t包名称: ${pkg}\n"
+  index=1
+  for i in "${info[@]}"; do
+    echo -e "\t\t\t${index}.${i}"
+    let index++
+  done
+  read -p "请根据上述功能进行选择: " choice
+  case $choice in
+  1) sudo apt install ${pkg} -y ;;
+  2) sudo apt upgrade ${pkg} -y ;;
+  3)
+    echo "删除的安装包 : ${pkg}"
+    read -p "确定是否删除 ${pkg},输入 (y|Y): " is_remove
+    if [[ "${is_remove}" =~ [yY] ]]; then
+      read -p "删除包时删除配置文件? (y|Y): " is_remove_config
+      [[ "${is_remove_config}" =~ [yY] ]] && sudo apt-get autoremove ${pkg} --purge
+      sudo apt-get remove ${pkg}
+    else
+      echo "Not removed"
+    fi
+    ;;
+  4) sudo apt-cache show ${pkg} ;;
+  5) sudo apt-get install $pkg --reinstall ;;
+  6) sudo apt-get install $pkg -f ;;
+  7) sudo apt-cache depends $pkg ;;
+  8) sudo apt-cache rdepends $pkg ;;
+  9) sudo apt-get source $pkg ;;
+  10) return 100 ;;
+  *) echo "无效的选择,$choice!" ;;
+  esac
+}
+
+menu() {
+  echo -e "\t\t\tapt管理\n"
+  info=(
+    "更新源"
+    "包管理"
+    "升级所有可更新的包"
+    "升级系统"
+    "退出"
+  )
+  index=1
+  for i in "${info[@]}"; do
+    echo -e "\t\t\t${index}.${i}"
+    let index++
+  done
+  read -p "Enter a number: " choice
+  case $choice in
+  1) sudo apt-get update ;;
+  2)
+    read -p "输入需要进行管理的包名: " pkg
+    while true; do
+      manger_package $pkg
+      [ $? -eq 100 ] && break
+    done
+    ;;
+  3) sudo apt-get upgrade ;;
+  4) sudo apt-get dist-upgrade ;;
+  5)
+    echo "exit"
+    exit 0
+    ;;
+  *) echo "无效的选择,$choice!" ;;
+  esac
+}
+
+main() {
+  check_run_as_root
+  while true; do
+    menu
+  done
+}
+main
+
+```
+
+
+
 # apt介绍
 
-![image-20230303145133284](/home/Ljw/.config/Typora/typora-user-images/image-20230303145133284.png)
+![image-20230303145133284](images/image-20230303145133284.png)
 
 apt是`AdvancedPackagingTool`的简称，是一款`安装包管理工具`。在Ubuntu下，我
 
@@ -3942,11 +4648,11 @@ apt是`AdvancedPackagingTool`的简称，是一款`安装包管理工具`。在U
 
 unbuntu软件管理的原理示意图：
 
-![image-20230303145157619](/home/Ljw/.config/Typora/typora-user-images/image-20230303145157619.png)
+![image-20230303145157619](images/image-20230303145157619.png)
 
 ## Ubuntu软件操作的相关命令
 
-![image-20230303150206647](/home/Ljw/.config/Typora/typora-user-images/image-20230303150206647.png)
+![image-20230303150206647](images/image-20230303150206647.png)
 
 ### 更新源
 
@@ -4040,7 +4746,7 @@ sudo apt-get source package
 
 ## 更新apt下载源
 
-![image-20230303150347180](/home/Ljw/.config/Typora/typora-user-images/image-20230303150347180.png)
+![image-20230303150347180](images/image-20230303150347180.png)
 
 ### 备份默认源
 
@@ -4089,7 +4795,7 @@ sudo apt-get update
 
 # 远程登录Ubuntu
 
-![image-20230303151757188](/home/Ljw/.config/Typora/typora-user-images/image-20230303151757188.png)
+![image-20230303151757188](images/image-20230303151757188.png)
 
 ## ssh介绍
 
@@ -4111,7 +4817,7 @@ net-tools)，因此，我们不能进行远程登录。
 
 ## 安装SSH和启用
 
-![image-20230303152146931](/home/Ljw/.config/Typora/typora-user-images/image-20230303152146931.png)
+![image-20230303152146931](images/image-20230303152146931.png)
 
 ```bash
 sudo apt-get install openssh-server
@@ -4127,7 +4833,7 @@ service sshd restart
 
 ## ssh连接
 
-![image-20230303152728689](/home/Ljw/.config/Typora/typora-user-images/image-20230303152728689.png)
+![image-20230303152728689](images/image-20230303152728689.png)
 
 在创建服务器集群时，会使用到该技术
 
@@ -4143,13 +4849,13 @@ ssh `用户名@IP`
 
 # centos7和8对比
 
-![image-20230303154234214](/home/Ljw/.config/Typora/typora-user-images/image-20230303154234214.png)
+![image-20230303154234214](images/image-20230303154234214.png)
 
 
 
 # 日志信息
 
-![image-20230303154425181](/home/Ljw/.config/Typora/typora-user-images/image-20230303154425181.png)
+![image-20230303154425181](images/image-20230303154425181.png)
 
 ## 基本介绍
 
@@ -4173,7 +4879,7 @@ ssh `用户名@IP`
 
 常用系统日志
 
-![image-20230303154658494](/home/Ljw/.config/Typora/typora-user-images/image-20230303154658494.png)
+![image-20230303154658494](images/image-20230303154658494.png)
 
 ## 应用案例
 
@@ -4183,7 +4889,7 @@ ssh `用户名@IP`
 
 ## 日志管理服务(rsyslogd)
 
-![image-20230303155549961](/home/Ljw/.config/Typora/typora-user-images/image-20230303155549961.png)
+![image-20230303155549961](images/image-20230303155549961.png)
 
 CentOs7.6日志服务是rsyslogd，CentOs6.x日志服务是syslogd。rsyslogd功能更强大
 
@@ -4205,13 +4911,13 @@ systemctl list-unit-files | grep rsyslog
 
 #### 日志类型
 
-![image-20230303160457206](/home/Ljw/.config/Typora/typora-user-images/image-20230303160457206.png)
+![image-20230303160457206](images/image-20230303160457206.png)
 
 #### 日志级别
 
-![image-20230303160713708](/home/Ljw/.config/Typora/typora-user-images/image-20230303160713708.png)
+![image-20230303160713708](images/image-20230303160713708.png)
 
-![image-20230303160855587](/home/Ljw/.config/Typora/typora-user-images/image-20230303160855587.png)
+![image-20230303160855587](images/image-20230303160855587.png)
 
 由日志服务rsyslogd记录的日志文件，日志文件的格式包含以下4列：
 
@@ -4235,7 +4941,7 @@ systemctl list-unit-files | grep rsyslog
 
 # 日志轮替
 
-![image-20230303161553173](/home/Ljw/.config/Typora/typora-user-images/image-20230303161553173.png)
+![image-20230303161553173](images/image-20230303161553173.png)
 
 ## 基本介绍
 
@@ -4267,7 +4973,7 @@ secure”
 
 ## /etc/logrotate.conf
 
-![image-20230303162101995](/home/Ljw/.config/Typora/typora-user-images/image-20230303162101995.png)
+![image-20230303162101995](images/image-20230303162101995.png)
 
 ```ini
 # see "man logrotate" for details
@@ -4295,7 +5001,7 @@ include /etc/logrotate.d
 
 ### 参数说明
 
-![image-20230303162633504](/home/Ljw/.config/Typora/typora-user-images/image-20230303162633504.png)
+![image-20230303162633504](images/image-20230303162633504.png)
 
 ```ini
 
@@ -4332,7 +5038,7 @@ postrotate/endscript
 
 ```
 
-![image-20230303162829787](/home/Ljw/.config/Typora/typora-user-images/image-20230303162829787.png)
+![image-20230303162829787](images/image-20230303162829787.png)
 
 ### 把自己的日志加入日志轮替
 
@@ -4356,7 +5062,7 @@ postrotate/endscript
 
 # 查看内存日志
 
-![image-20230303165059548](/home/Ljw/.config/Typora/typora-user-images/image-20230303165059548.png)
+![image-20230303165059548](images/image-20230303165059548.png)
 
 ## journalctl
 
@@ -4400,7 +5106,7 @@ journalctl查看的是内存日志，重启清空
 
 # 定制化linux系统
 
-![image-20230304191550526](/home/Ljw/.config/Typora/typora-user-images/image-20230304191550526.png)
+![image-20230304191550526](images/image-20230304191550526.png)
 
 ## 基本介绍
 
@@ -4410,7 +5116,7 @@ journalctl查看的是内存日志，重启清空
 
 ## 基本原理
 
-![image-20230304191655642](/home/Ljw/.config/Typora/typora-user-images/image-20230304191655642.png)
+![image-20230304191655642](images/image-20230304191655642.png)
 
 启动流程介绍：
 
@@ -4444,7 +5150,7 @@ journalctl查看的是内存日志，重启清空
 
 ## 制作思路分析
 
-![image-20230304191858612](/home/Ljw/.config/Typora/typora-user-images/image-20230304191858612.png)
+![image-20230304191858612](images/image-20230304191858612.png)
 
 在现有的Linux系统（centos7.6)上加一块硬盘/dev/sdb，在硬盘上分两个分区，一个是/boot，
 
@@ -4656,7 +5362,7 @@ fi
 
 # 为什么要阅读linux内核？
 
-![image-20230304202646150](/home/Ljw/.config/Typora/typora-user-images/image-20230304202646150.png)
+![image-20230304202646150](images/image-20230304202646150.png)
 
 爱好，就是喜欢linux(黑客精神）
 
@@ -4686,7 +5392,7 @@ linux/unix）最好是源码级别的，这样你写多线程高并发程序，�
 
 # linux0.01内核源码
 
-![image-20230304202657503](/home/Ljw/.config/Typora/typora-user-images/image-20230304202657503.png)
+![image-20230304202657503](images/image-20230304202657503.png)
 
 ## 基本介绍
 
@@ -4710,7 +5416,7 @@ linux0.01内核源码目录&阅读
 
 ## 阅读内核源码技巧
 
-![image-20230304202934810](/home/Ljw/.config/Typora/typora-user-images/image-20230304202934810.png)
+![image-20230304202934810](images/image-20230304202934810.png)
 
 linux0.01的阅读需要懂c语言
 
@@ -4762,7 +5468,7 @@ yum list kernel -q
 
 ## 基本介绍
 
-![image-20230306161302226](/home/Ljw/.config/Typora/typora-user-images/image-20230306161302226.png)
+![image-20230306161302226](images/image-20230306161302226.png)
 
 实体机无法做快照，如果系统出现异常或者数据损坏，后果严重，要重做统，还会造成数据丢失。
 
@@ -4780,7 +5486,7 @@ linux的备份和恢复很简单，有两种方式：
 
 ## 使用dump完成备份
 
-![image-20230306162631320](/home/Ljw/.config/Typora/typora-user-images/image-20230306162631320.png)
+![image-20230306162631320](images/image-20230306162631320.png)
 
 ### 基本介绍
 
@@ -4826,7 +5532,7 @@ dump [] -wW
 
 ##### -W
 
-![image-20230306165949619](/home/Ljw/.config/Typora/typora-user-images/image-20230306165949619.png)
+![image-20230306165949619](images/image-20230306165949619.png)
 
 显示需要备份的文件及其最后一次备份的层级，时间，日期。
 
@@ -4836,11 +5542,11 @@ dump [] -wW
 
 ##### 查看备份时间文件
 
-![image-20230306170022774](/home/Ljw/.config/Typora/typora-user-images/image-20230306170022774.png)
+![image-20230306170022774](images/image-20230306170022774.png)
 
 ### 示例
 
-![image-20230306164304490](/home/Ljw/.config/Typora/typora-user-images/image-20230306164304490.png)
+![image-20230306164304490](images/image-20230306164304490.png)
 
 #### dump应用案例1
 
@@ -4932,7 +5638,7 @@ restore -r -f boot.bak1.bz2
 
 # webmin
 
-![image-20230306172557207](/home/Ljw/.config/Typora/typora-user-images/image-20230306172557207.png)
+![image-20230306172557207](images/image-20230306172557207.png)
 
 ## 基本介绍
 
@@ -4942,7 +5648,7 @@ Webmin是功能强大的基于Web的Unix/linux系统管理工具。管理员通�
 
 ## 安装webmin&配置
 
-![image-20230306173207510](/home/Ljw/.config/Typora/typora-user-images/image-20230306173207510.png)
+![image-20230306173207510](images/image-20230306173207510.png)
 
 ### 1.下载
 
@@ -5010,7 +5716,7 @@ http://ip:6666可以访问了
 
 # bt(宝塔）
 
-![image-20230307160341652](/home/Ljw/.config/Typora/typora-user-images/image-20230307160341652.png)
+![image-20230307160341652](images/image-20230307160341652.png)
 
 ## 基本介绍
 
@@ -5127,9 +5833,9 @@ ngx_cache_purge实现缓存清除功能
 
 
 
-![image-20230308150241749](/home/Ljw/.config/Typora/typora-user-images/image-20230308150241749.png)
+![image-20230308150241749](images/image-20230308150241749.png)
 
-![image-20230308150927397](/home/Ljw/.config/Typora/typora-user-images/image-20230308150927397.png)
+![image-20230308150927397](images/image-20230308150927397.png)
 
 2.根据自己实际经验谈考虑因素
 
@@ -5180,9 +5886,9 @@ CentOS 7启动流程
 
 
 
-![image-20230308153930383](/home/Ljw/.config/Typora/typora-user-images/image-20230308153930383.png)
+![image-20230308153930383](images/image-20230308153930383.png)
 
-![image-20230308154023674](/home/Ljw/.config/Typora/typora-user-images/image-20230308154023674.png)
+![image-20230308154023674](images/image-20230308154023674.png)
 
 开机
 BIOS自检 cpu、内存、网卡等

@@ -1,3 +1,40 @@
+# **什么是容器**
+
+容器一词的英文是container，其实container还有集装箱的意思，集装箱绝对是商业史上了不起的一项发明，大大降低了海洋贸易运输成本。让我们来看看集装箱的好处：
+
+- 集装箱之间相互隔离
+- 长期反复使用
+- 快速装载和卸载
+- 规格标准，在港口和船上都可以摆放
+
+![img](https://pic3.zhimg.com/v2-f698870a2becd150a5376942be7368de_b.jpg)
+
+回到软件中的容器，其实容器和集装箱在概念上是很相似的。
+
+现代软件开发的一大目的就是隔离，应用程序在运行时相互独立互不干扰，这种隔离实现起来是很不容易的，其中一种解决方案就是上面提到的虚拟机技术，通过将应用程序部署在不同的虚拟机中从而实现隔离。
+
+![img](https://pic1.zhimg.com/v2-0f6ede7f0b920b5d0d5571c937a04838_b.jpg)
+
+但是虚拟机技术有上述提到的各种缺点，那么容器技术又怎么样呢？
+
+与虚拟机通过操作系统实现隔离不同，容器技术**只隔离应用程序的运行时环境但容器之间可以共享同一个操作系统**，这里的运行时环境指的是程序运行依赖的各种库以及配置。
+
+![img](https://pic2.zhimg.com/v2-907214eadd65987e84a0751c08143f91_b.jpg)
+
+从图中我们可以看到容器更加的**轻量级且占用的资源更少**，与操作系统动辄几G的内存占用相比，容器技术只需数M空间，因此我们可以在同样规格的硬件上**大量部署容器**，这是虚拟机所不能比拟的，而且不同于操作系统数分钟的启动时间容器几乎瞬时启动，容器技术为**打包服务栈**提供了一种更加高效的方式，So cool。
+
+那么我们该怎么使用容器呢？这就要讲到docker了。
+
+注意，容器是一种通用技术，docker只是其中的一种实现。
+
+# **什么是docker**
+
+docker是一个用Go语言实现的开源项目，可以让我们方便的创建和使用容器，docker将程序以及程序所有的依赖都打包到docker container，这样你的程序可以在任何环境都会有一致的表现，这里程序运行的依赖也就是容器就好比集装箱，容器所处的操作系统环境就好比货船或港口，**程序的表现只和集装箱有关系(容器)，和集装箱放在哪个货船或者哪个港口(操作系统)没有关系**。
+
+因此我们可以看到docker可以屏蔽环境差异，也就是说，只要你的程序打包到了docker中，那么无论运行在什么环境下程序的行为都是一致的，程序员再也无法施展表演才华了，**不会再有“在我的环境上可以运行”**，真正实现“build once, run everywhere”。
+
+此外docker的另一个好处就是**快速部署**，这是当前互联网公司最常见的一个应用场景，一个原因在于容器启动速度非常快，另一个原因在于只要确保一个容器中的程序正确运行，那么你就能确信无论在生产环境部署多少都能正确运行。
+
 # docker最核⼼的组件
 
 image镜像，构建容器（我们讲应⽤程序运⾏所需的环境，打包为镜像⽂件）
@@ -41,7 +78,7 @@ wget -O /etc/yum.repos.d/epel.repo
 http://mirrors.aliyun.com/repo/epel-7.repo
 yum clean all
 yum makecache
-yum install -y bash-completion vim lrzsz wget expect nettools nc nmap tree dos2unix htop iftop iotop unzip telnet sl
+yum install -y bash-completion vim lrzsz wget expect net-tools nc nmap tree dos2unix htop iftop iotop unzip telnet sl
 psmisc nethogs glances bc ntpdate openldap-devel
 
 ```
